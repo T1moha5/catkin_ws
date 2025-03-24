@@ -490,6 +490,12 @@ message_generation_DIR:PATH=/opt/ros/noetic/share/message_generation/cmake
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/noetic/share/message_runtime/cmake
 
+//Value Computed by CMake
+rosbots_description_BINARY_DIR:STATIC=/home/user/catkin_ws/build/rosbots_description
+
+//Value Computed by CMake
+rosbots_description_SOURCE_DIR:STATIC=/home/user/catkin_ws/src/rosbots_description
+
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/noetic/share/rosconsole/cmake
 
@@ -534,6 +540,12 @@ super_robot_package_BINARY_DIR:STATIC=/home/user/catkin_ws/build/super_robot_pac
 
 //Value Computed by CMake
 super_robot_package_SOURCE_DIR:STATIC=/home/user/catkin_ws/src/super_robot_package
+
+//Value Computed by CMake
+teleop_twist_keyboard_BINARY_DIR:STATIC=/home/user/catkin_ws/build/teleop_twist_keyboard
+
+//Value Computed by CMake
+teleop_twist_keyboard_SOURCE_DIR:STATIC=/home/user/catkin_ws/src/teleop_twist_keyboard
 
 //The directory containing a CMake configuration file for tf2.
 tf2_DIR:PATH=/opt/ros/noetic/share/tf2/cmake
@@ -719,7 +731,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=10
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

@@ -54,6 +54,8 @@ CMAKE_BINARY_DIR = /home/user/catkin_ws/build
 
 # The main recursive "all" target.
 all: gtest/all
+all: teleop_twist_keyboard/all
+all: rosbots_description/all
 all: ros_course_2024/all
 all: super_robot_package/all
 all: tima/ROS_new/all
@@ -63,6 +65,8 @@ all: ydlidar_ws/src/ydlidar_ros_driver/all
 
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
+preinstall: teleop_twist_keyboard/preinstall
+preinstall: rosbots_description/preinstall
 preinstall: ros_course_2024/preinstall
 preinstall: super_robot_package/preinstall
 preinstall: tima/ROS_new/preinstall
@@ -77,6 +81,8 @@ clean: CMakeFiles/clean_test_results.dir/clean
 clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
+clean: teleop_twist_keyboard/clean
+clean: rosbots_description/clean
 clean: ros_course_2024/clean
 clean: super_robot_package/clean
 clean: tima/ROS_new/clean
@@ -214,6 +220,24 @@ ros_course_2024/clean: ros_course_2024/CMakeFiles/std_srvs_generate_messages_nod
 .PHONY : ros_course_2024/clean
 
 #=============================================================================
+# Directory level rules for directory rosbots_description
+
+# Recursive "all" directory target.
+rosbots_description/all:
+
+.PHONY : rosbots_description/all
+
+# Recursive "preinstall" directory target.
+rosbots_description/preinstall:
+
+.PHONY : rosbots_description/preinstall
+
+# Recursive "clean" directory target.
+rosbots_description/clean:
+
+.PHONY : rosbots_description/clean
+
+#=============================================================================
 # Directory level rules for directory super_robot_package
 
 # Recursive "all" directory target.
@@ -230,6 +254,24 @@ super_robot_package/preinstall:
 super_robot_package/clean:
 
 .PHONY : super_robot_package/clean
+
+#=============================================================================
+# Directory level rules for directory teleop_twist_keyboard
+
+# Recursive "all" directory target.
+teleop_twist_keyboard/all:
+
+.PHONY : teleop_twist_keyboard/all
+
+# Recursive "preinstall" directory target.
+teleop_twist_keyboard/preinstall:
+
+.PHONY : teleop_twist_keyboard/preinstall
+
+# Recursive "clean" directory target.
+teleop_twist_keyboard/clean: teleop_twist_keyboard/CMakeFiles/_catkin_empty_exported_target.dir/clean
+
+.PHONY : teleop_twist_keyboard/clean
 
 #=============================================================================
 # Directory level rules for directory tima/ROS_new
@@ -266,7 +308,6 @@ ydlidar_ws/src/ydlidar_ros_driver/preinstall:
 
 # Recursive "clean" directory target.
 ydlidar_ws/src/ydlidar_ros_driver/clean: ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/ydlidar_ros_driver_node.dir/clean
-ydlidar_ws/src/ydlidar_ros_driver/clean: ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/clean
 
 .PHONY : ydlidar_ws/src/ydlidar_ros_driver/clean
 
@@ -513,6 +554,33 @@ gtest: gtest/googletest/CMakeFiles/gtest.dir/rule
 gtest/googletest/CMakeFiles/gtest.dir/clean:
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/clean
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/clean
+
+#=============================================================================
+# Target rules for target teleop_twist_keyboard/CMakeFiles/_catkin_empty_exported_target.dir
+
+# All Build rule for target.
+teleop_twist_keyboard/CMakeFiles/_catkin_empty_exported_target.dir/all:
+	$(MAKE) -f teleop_twist_keyboard/CMakeFiles/_catkin_empty_exported_target.dir/build.make teleop_twist_keyboard/CMakeFiles/_catkin_empty_exported_target.dir/depend
+	$(MAKE) -f teleop_twist_keyboard/CMakeFiles/_catkin_empty_exported_target.dir/build.make teleop_twist_keyboard/CMakeFiles/_catkin_empty_exported_target.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/user/catkin_ws/build/CMakeFiles --progress-num= "Built target _catkin_empty_exported_target"
+.PHONY : teleop_twist_keyboard/CMakeFiles/_catkin_empty_exported_target.dir/all
+
+# Build rule for subdir invocation for target.
+teleop_twist_keyboard/CMakeFiles/_catkin_empty_exported_target.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 teleop_twist_keyboard/CMakeFiles/_catkin_empty_exported_target.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/catkin_ws/build/CMakeFiles 0
+.PHONY : teleop_twist_keyboard/CMakeFiles/_catkin_empty_exported_target.dir/rule
+
+# Convenience name for target.
+_catkin_empty_exported_target: teleop_twist_keyboard/CMakeFiles/_catkin_empty_exported_target.dir/rule
+
+.PHONY : _catkin_empty_exported_target
+
+# clean rule for target.
+teleop_twist_keyboard/CMakeFiles/_catkin_empty_exported_target.dir/clean:
+	$(MAKE) -f teleop_twist_keyboard/CMakeFiles/_catkin_empty_exported_target.dir/build.make teleop_twist_keyboard/CMakeFiles/_catkin_empty_exported_target.dir/clean
+.PHONY : teleop_twist_keyboard/CMakeFiles/_catkin_empty_exported_target.dir/clean
 
 #=============================================================================
 # Target rules for target ros_course_2024/CMakeFiles/geometry_msgs_generate_messages_eus.dir
@@ -2187,33 +2255,6 @@ ydlidar_ros_driver_node: ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/ydlidar_ro
 ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/ydlidar_ros_driver_node.dir/clean:
 	$(MAKE) -f ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/ydlidar_ros_driver_node.dir/build.make ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/ydlidar_ros_driver_node.dir/clean
 .PHONY : ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/ydlidar_ros_driver_node.dir/clean
-
-#=============================================================================
-# Target rules for target ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir
-
-# All Build rule for target.
-ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/all:
-	$(MAKE) -f ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/build.make ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/depend
-	$(MAKE) -f ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/build.make ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/user/catkin_ws/build/CMakeFiles --progress-num= "Built target _catkin_empty_exported_target"
-.PHONY : ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/all
-
-# Build rule for subdir invocation for target.
-ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/user/catkin_ws/build/CMakeFiles 0
-.PHONY : ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/rule
-
-# Convenience name for target.
-_catkin_empty_exported_target: ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/rule
-
-.PHONY : _catkin_empty_exported_target
-
-# clean rule for target.
-ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/clean:
-	$(MAKE) -f ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/build.make ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/clean
-.PHONY : ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -182,21 +182,6 @@ ydlidar_ros_driver_node/fast:
 	cd /home/user/catkin_ws/build && $(MAKE) -f ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/ydlidar_ros_driver_node.dir/build.make ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/ydlidar_ros_driver_node.dir/build
 .PHONY : ydlidar_ros_driver_node/fast
 
-# Convenience name for target.
-ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/rule:
-	cd /home/user/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/rule
-.PHONY : ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/rule
-
-# Convenience name for target.
-_catkin_empty_exported_target: ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/rule
-
-.PHONY : _catkin_empty_exported_target
-
-# fast build rule for target.
-_catkin_empty_exported_target/fast:
-	cd /home/user/catkin_ws/build && $(MAKE) -f ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/build.make ydlidar_ws/src/ydlidar_ros_driver/CMakeFiles/_catkin_empty_exported_target.dir/build
-.PHONY : _catkin_empty_exported_target/fast
-
 src/ydlidar_ros_driver.o: src/ydlidar_ros_driver.cpp.o
 
 .PHONY : src/ydlidar_ros_driver.o
@@ -238,7 +223,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... ydlidar_ros_driver_node"
-	@echo "... _catkin_empty_exported_target"
 	@echo "... src/ydlidar_ros_driver.o"
 	@echo "... src/ydlidar_ros_driver.i"
 	@echo "... src/ydlidar_ros_driver.s"
