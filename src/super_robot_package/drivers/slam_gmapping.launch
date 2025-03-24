@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="scan_input_topic" default="scan" />
+    <node name="slam_gmapping" pkg="gmapping" type="slam_gmapping" output="screen">
+        <rosparam file="$(find super_robot_package)/config/slam_gmapping.yaml" command="load"/>
+        <remap from="scan" to="$(arg scan_input_topic)"/>
+    </node>
+</launch>

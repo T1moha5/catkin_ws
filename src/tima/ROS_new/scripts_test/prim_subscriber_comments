@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+import rospy
+from std_msgs.msg import String
+
+def callback(msg):
+    rospy.loginfo(msg.data) # полученные данные
+
+rospy.init_node('listener')#имя скрипта в пространстве
+rospy.Subscriber('topic_name', String, callback, queue_size=10)#имя топика, тип данных, значение ожидающих сообщений (в очереди) для сброса очереди
+rospy.spin()

@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+import rospy
+from std_msgs.msg import String
+
+rospy.init_node('talker')#имя скрипта в пространстве
+pub = rospy.Publisher('topic_name', String, queue_size=10)#имя топика, тип данных, значение ожидающих сообщений (в очереди) для сброса очереди
+rate = rospy.Rate(1)# 1 Hz частота отправки
+
+def start_talker():# Создаем объект сообщения
+    msg = String()
+    while not rospy.is_shutdown():# Бесконечный цикл, пока ROS система работает
+        hello_str = "hi =) %s" % rospy.get_time() # Вывод в терминал информации (содержание сообщения)
+        rospy.loginfo(hello_str)# Заполнение сообщения и публикация сообщения в топик
+
+        msg.data = hello_str
+        pub.publish(msg)
+
+        rate.sleep()# Сон в соответствии с выдерживаемой частотой
+
+try:
+    start_talker()
+except (rospy.ROSInterruptException, KeyboardInterrupt):
+    rospy.logerr('Exception catched')

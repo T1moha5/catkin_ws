@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find super_robot_package)/launch/slam_gmapping.launch" />
+  
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find super_robot_package)config/navigation.rviz" />
+</launch>
+

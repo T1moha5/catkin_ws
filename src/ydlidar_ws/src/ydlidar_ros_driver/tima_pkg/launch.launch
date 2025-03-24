@@ -1,0 +1,11 @@
+<launch>
+     <include file="$(find ydlidar_ros_driver)/tima_pkg/slam_gmapping.launch"/>
+
+     <include file="$(find ydlidar_ros_driver)/tima_pkg/tf_transforms.launch"/>
+            
+     <include file="$(find ydlidar_ros_driver)/tima_pkg/full_rs_odom.launch"/>
+     
+     <include file="$(find ydlidar_ros_driver)/tima_pkg/full_start_lidar.launch"/>
+     
+     
+</launch>

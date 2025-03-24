@@ -1,0 +1,5 @@
+<launch>
+    <node name="listener" pkg="tima" type="s1.py" output="screen"/>
+    <node name="listener1" pkg="tima" type="s2.py" output="screen"/>
+    <node name="talker" pkg="tima" type="pub.py" output="screen"/>
+</launch>

@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find super_robot_package)/launch/X4-Pro.launch" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ydlidar_ros_driver)/launch/lidar.rviz" />
+</launch>

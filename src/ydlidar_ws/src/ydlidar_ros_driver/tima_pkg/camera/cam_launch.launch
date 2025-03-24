@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find ydlidar_ros_driver)/tima_pkg/camera/start_rs_camera.launch" /> 
+  <include file="$(find ydlidar_ros_driver)/tima_pkg/camera/rgbd_odom.launch" />
+  <node pkg="rviz" type="rviz" name="rviz($anon)" args="$(find ydlidar_ros_driver)/tima_pkg/camera/cam_odom_config.rviz" />
+
+</launch>

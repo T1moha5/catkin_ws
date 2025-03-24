@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Аргументы -->
+    <arg name="camera_name" default="rs_camera" />
+    <arg name="publish_tf" default="true" />
+    <arg name="scan_input_topic" default="scan" />
+
+    <!-- Запуск камеры Realsense -->
+    <group ns="rs_camera">
+        <include file="$(find ydlidar_ros_driver)/tima_pkg/camera/driver_realsense.launch">
+            <arg name="tf_prefix" value="$(arg camera_name)" />
+            <arg name="align_depth" value="true" />
+            <arg name="linear_accel_cov" value="0.01" />
+            <arg name="unite_imu_method" value="copy" />
+            <arg name="depth_fps" value="30" />
+            <arg name="color_fps" value="30" />
+            <arg name="enable_gyro" value="true" />
+            <arg name="enable_accel" value="true" />
+            <arg name="initial_reset" default="false" />
+        </include>
+
+        <node pkg="nodelet" type="nodelet" name="rgbd_sync" args="load rtabmap_sync/rgbd_sync realsense2_camera_manager" output="screen">
+            <remap from="rgb/image" to="color/image_raw" />
+            <remap from="depth/image" to="aligned_depth_to_color/image_raw" />
+            <remap from="rgb/camera_info" to="color/camera_info" />
+            <param name="approx_sync" value="false" />
+        </node>
+    </group>
+
+    <!-- Запуск RGBD одометрии -->
+    <node pkg="rtabmap_odom" type="rgbd_odometry" name="rgbd_odometry" output="screen">
+        <param name="subscribe_rgbd" type="bool" value="true" />
+        <param name="frame_id" type="string" value="rs_camera_link" />
+        <param name="odom_frame_id" type="string" value="odom"/>
+        <param name="publish_tf" type="bool" value="$(arg publish_tf)" />
+        <param name="publish_null_when_lost" type="bool" value="true" />
+        <param name="Reg/Force3DoF" type="bool" value="false" />
+        <param name="Odom/ResetCountdown" type="string" value="1" />
+        <param name="Odom/Strategy" type="string" value="0"/>
+        <param name="OdomF2M/MaxSize" type="string" value="1000"/>
+        <param name="Vis/EstimationType" type="string" value="1"/>
+        <param name="Vis/MaxDepth" type="string" value="0"/>
+        <param name="Vis/MinInliers" type="string" value="10"/>
+        <param name="GFTT/MinDistance" type="string" value="10"/>
+        <param name="GFTT/QualityLevel" type="string" value="0.00001"/>
+        <remap from="rgb/image" to="$(arg camera_name)/color/image_raw" />
+        <remap from="rgb/camera_info" to="$(arg camera_name)/color/camera_info" />
+        <remap from="depth/image" to="$(arg camera_name)/aligned_depth_to_color/image_raw" />
+        <remap from="rgbd_image" to="$(arg camera_name)/rgbd_image" />
+        <remap from="odom" to="visual_odometry" />
+    </node>
+
+    <!-- Запуск статических трансформаций -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_2_front_rs_d435i_camera_link"
+          args="-0.045 0.0 0.29 0.0 0.226893 0.0 /rs_camera_link /base_footprint" />
+
+    <!-- Запуск SLAM (gmapping) -->
+    <node name="slam_gmapping" pkg="gmapping" type="slam_gmapping" output="screen">
+        <rosparam file="$(find ydlidar_ros_driver)/tima_pkg/slam_gmapping.yaml" command="load"/>
+        <remap from="scan" to="$(arg scan_input_topic)"/>
+    </node>
+
+    <!-- Запуск RViz -->
+    <node pkg="rviz" type="rviz" name="rviz" output="screen">
+        <!-- Вы можете указать конфигурационный файл для RViz -->
+        <param name="config_file" value="$(find ydlidar_ros_driver)/tima_pkg/camera/config.rviz"/>
+    </node>
+
+</launch>
+

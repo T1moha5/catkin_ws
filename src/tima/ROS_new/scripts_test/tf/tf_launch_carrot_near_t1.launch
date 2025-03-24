@@ -1,0 +1,24 @@
+<launch>
+    <node name="simulator" pkg="turtlesim" type="turtlesim_node" output="screen"/>
+        
+    <node name="keyboard" pkg="turtlesim" type="turtle_teleop_key"  output="screen"/>
+
+    <node name="turtle_tf_broadcaster" type="turtle_tf_broadcaster.py" pkg="tima"  output="screen">
+        <param name="turtle_tf_name" value="turtle"/>
+        <remap from="/input_pose" to="turtle1/pose"/>
+    </node>
+    
+	<node name="carrot" type="turtle_tf_broadcaster.py" pkg="tima"  output="screen">
+        <param name="turtle_tf_name" value="carrot"/>
+        <remap from="/input_pose" to="carrot/pose"/>
+    </node>
+      
+    <node name="tf" pkg="tf" type="static_transform_publisher" args="0.2 0 0 0 0 0 turtle carrot 100" />
+        
+    <node pkg="rviz" type="rviz" name="rviz" />
+</launch>
+
+
+<!--Запустить turtlesim_node из пакета turtlesim для запуска симулятора. Переименовать в simulator.
+#Запустить turtle_teleop_key из пакета turtlesim для управления первой черепашкой. Переименовать в keyboard.
+#Запустить turtle_tf_broadcaster.py из нашего пакета и не забудьте смапировать топик из input_pose в turtle1/pose. Также не забудьте приватному параметру turtle_tf_name присвоить значение turtle1. Переименовать в turtle1_tf_broadcaster.!-->

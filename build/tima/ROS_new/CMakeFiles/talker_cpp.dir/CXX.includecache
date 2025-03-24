@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/user/catkin_ws/src/tima/ROS_new/scripts_test/cpp_test/publisher.cpp
+ros/ros.h
+-
+std_msgs/String.h
+-
+sstream
+-
+
